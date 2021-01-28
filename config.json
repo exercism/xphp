@@ -705,6 +705,17 @@
       ]
     },
     {
+      "slug": "scale-generator",
+      "uuid": "4134d491-8ec5-480b-aa61-37a02689db1f",
+      "core": false,
+      "unlocked_by": "isogram",
+      "difficulty": 3,
+      "topics": [
+        "pattern_matching",
+        "strings"
+      ]
+    },
+    {
       "slug": "armstrong-numbers",
       "uuid": "9e7be7f8-ea50-4245-bde3-2207f0bcebdd",
       "core": false,
