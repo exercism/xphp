@@ -658,6 +658,19 @@
       ]
     },
     {
+      "slug": "go-counting",
+      "uuid": "d4ddeb18-ac22-11e7-abc4-cec278b6b50a",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "classes",
+        "control_flow",
+        "parsing",
+        "tuples"
+      ]
+    },
+    {
       "slug": "rail-fence-cipher",
       "uuid": "9aa69058-1bce-4b65-bd26-7270698f97ea",
       "core": false,
