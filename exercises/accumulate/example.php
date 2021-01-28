@@ -1,11 +1,13 @@
 <?php
 
+namespace Exercism\Accumulate;
+
 /**
  * Given the input array and operation returns an array
  * containing the result of applying that operation
  * to each element of the input array.
  *
- * @param array    $input
+ * @param array $input
  * @param callable $accumulator
  *
  * @return array

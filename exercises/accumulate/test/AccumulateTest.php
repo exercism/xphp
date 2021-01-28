@@ -1,10 +1,24 @@
 <?php
 
-class AccumulateTest extends PHPUnit\Framework\TestCase
+namespace ExercismTest\Accumulate;
+
+use PHPUnit\Framework\TestCase;
+use function Exercism\Accumulate\accumulate;
+
+class AccumulateTest extends TestCase
 {
     public static function setUpBeforeClass() : void
     {
-        require_once 'accumulate.php';
+        $files = [
+            '../src/accumulate.php',
+            'Str.php',
+            'StrSplitter.php',
+            'Is.php',
+        ];
+
+        foreach ($files as $file) {
+            require_once __DIR__ . '/' . $file;
+        }
     }
 
     public function testAccumulateEmpty() : void
@@ -54,15 +68,15 @@ class AccumulateTest extends PHPUnit\Framework\TestCase
 
     public function testAccumulateWithinAccumulate() : void
     {
-        $chars = ['a', 'b', 'c'];
-        $digits = [1, 2, 3];
+        $chars    = ['a', 'b', 'c'];
+        $digits   = [1, 2, 3];
         $expected = [['a1', 'a2', 'a3'], ['b1', 'b2', 'b3'], ['c1', 'c2', 'c3']];
 
         $this->assertEquals(
             $expected,
             accumulate($chars, function ($char) use ($digits) {
                 return accumulate($digits, function ($digit) use ($char) {
-                    return $char.$digit;
+                    return $char . $digit;
                 });
             })
         );
@@ -77,40 +91,16 @@ class AccumulateTest extends PHPUnit\Framework\TestCase
 
     public function testAccumulateUsingStaticMethod() : void
     {
-        $this->assertEquals([5, 6], accumulate(['Hello', 'World!'], 'Str::len'));
+        $this->assertEquals([5, 6], accumulate(['Hello', 'World!'], 'ExercismTest\Accumulate\Str::len'));
     }
 
     public function testAccumulateUsingInvoke() : void
     {
-        $this->assertEquals([['f', 'o', 'o']], accumulate(['foo'], new StrSpliter()));
+        $this->assertEquals([['f', 'o', 'o']], accumulate(['foo'], new StrSplitter()));
     }
 
     public function testAccumulateUsingObjectAndArrayNotation() : void
     {
         $this->assertEquals([true, false, false], accumulate(['Yes', 0, []], [new Is(), 'truthy']));
-    }
-}
-
-class Str
-{
-    public static function len($string) : int
-    {
-        return strlen($string);
-    }
-}
-
-class StrSpliter
-{
-    public function __invoke($value)
-    {
-        return str_split($value);
-    }
-}
-
-class Is
-{
-    public function truthy($value) : bool
-    {
-        return $value ? true : false;
     }
 }
