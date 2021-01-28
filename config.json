@@ -4,6 +4,16 @@
   "blurb": "PHP is a scripting language designed for web development, but also used as a general-purpose programming language. It's one of the most popular programming languages for web development and provides object-oriented capabilities.",
   "exercises": [
     {
+      "slug": "high-scores",
+      "uuid": "19b41c4a-1466-5c19-b547-40284189fd18",
+      "core": false,
+      "unlocked_by": "pangram",
+      "difficulty": 2,
+      "topics": [
+        "arrays"
+      ]
+    },
+    {
       "slug": "hello-world",
       "uuid": "56116aa6-e3d1-4122-a394-a7e0f6ab6fea",
       "core": true,
